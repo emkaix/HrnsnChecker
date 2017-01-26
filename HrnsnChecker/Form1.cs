@@ -74,7 +74,7 @@ namespace HrnsnChecker
            
 
             UpdatePanelAchievements(jsonDataFilter);
-            UpdatePanelExp(statisticsRootObject);
+            UpdatePanelExp(jsonDataFilter);
             UpdatePanelGear(jsonDataFilter);
         }
 
@@ -138,7 +138,7 @@ namespace HrnsnChecker
         }
 
         //X
-        private void UpdatePanelExp(JSONConverter.RootObjectStatistics rootObjectStatistics)
+        private void UpdatePanelExp(JSONDataFilter datafilter)
         {
             var idList = new List<int>() {
                 10880, //EoA
@@ -152,31 +152,22 @@ namespace HrnsnChecker
                 10910, //CoS
                 11406, //Kara
             };
-            var mythicPlusStatisticsFiltered = rootObjectStatistics.statistics.subCategories[5].subCategories[6].statistics.Where(x => idList.Any(y => y == x.id)).ToList();
-            var countGesamt = mythicPlusStatisticsFiltered.Select(x => x.quantity).Aggregate((a, b) => a + b);
 
-            var c1 = mythicPlusStatisticsFiltered.Where(x => x.id == 10880).First();
-            var c2 = mythicPlusStatisticsFiltered.Where(x => x.id == 10883).First();
-            var c3 = mythicPlusStatisticsFiltered.Where(x => x.id == 10886).First();
-            var c4 = mythicPlusStatisticsFiltered.Where(x => x.id == 10889).First();
-            var c5 = mythicPlusStatisticsFiltered.Where(x => x.id == 10898).First();
-            var c6 = mythicPlusStatisticsFiltered.Where(x => x.id == 10901).First();
-            var c7 = mythicPlusStatisticsFiltered.Where(x => x.id == 10904).First();
-            var c8 = mythicPlusStatisticsFiltered.Where(x => x.id == 10907).First();
-            var c9 = mythicPlusStatisticsFiltered.Where(x => x.id == 10910).First();
-            var c10 = mythicPlusStatisticsFiltered.Where(x => x.id == 11406).First();
+            //-----------
+            var dict = datafilter.GetDungeonCount(idList);
 
-            lbMPlusCount.Text = $"M+ Count: {countGesamt}";
-            lbDungeonEoA.Text = $"{c1.quantity}";
-            lbDungeonDhT.Text = $"{c2.quantity}";
-            lbDungeonNL.Text = $"{c3.quantity}";
-            lbDungeonHoV.Text = $"{c4.quantity}";
-            lbDungeonVoW.Text = $"{c5.quantity}";
-            lbDungeonBRH.Text = $"{c6.quantity}";
-            lbDungeonMoS.Text = $"{c7.quantity}";
-            lbDungeonArc.Text = $"{c8.quantity}";
-            lbDungeonCoS.Text = $"{c9.quantity}";
-            lbDungeonKara.Text = $"{c10.quantity}";
+
+            lbMPlusCount.Text = $"M+ Count: {dict["Gesamt"]}";
+            lbDungeonEoA.Text = $"{dict["EoA"]}";
+            lbDungeonDhT.Text = $"{dict["DhT"]}";
+            lbDungeonNL.Text = $"{dict["NL"]}";
+            lbDungeonHoV.Text = $"{dict["HoV"]}";
+            lbDungeonVoW.Text = $"{dict["VoW"]}";
+            lbDungeonBRH.Text = $"{dict["BRH"]}";
+            lbDungeonMoS.Text = $"{dict["MoS"]}";
+            lbDungeonArc.Text = $"{dict["Arcway"]}";
+            lbDungeonCoS.Text = $"{dict["CoS"]}";
+            lbDungeonKara.Text = $"{dict["Kara"]}";
 
         }
 

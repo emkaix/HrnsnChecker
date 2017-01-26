@@ -1,0 +1,10 @@
+E:\Dropbox\Projects\HrnsnChecker\HrnsnChecker\bin\Release\HrnsnChecker.exe.config
+E:\Dropbox\Projects\HrnsnChecker\HrnsnChecker\bin\Release\HrnsnChecker.exe
+E:\Dropbox\Projects\HrnsnChecker\HrnsnChecker\bin\Release\HrnsnChecker.pdb
+E:\Dropbox\Projects\HrnsnChecker\HrnsnChecker\bin\Release\Newtonsoft.Json.dll
+E:\Dropbox\Projects\HrnsnChecker\HrnsnChecker\bin\Release\Newtonsoft.Json.xml
+E:\Dropbox\Projects\HrnsnChecker\HrnsnChecker\obj\Release\HrnsnChecker.HrnsnChecker.resources
+E:\Dropbox\Projects\HrnsnChecker\HrnsnChecker\obj\Release\HrnsnChecker.Properties.Resources.resources
+E:\Dropbox\Projects\HrnsnChecker\HrnsnChecker\obj\Release\HrnsnChecker.csproj.GenerateResource.Cache
+E:\Dropbox\Projects\HrnsnChecker\HrnsnChecker\obj\Release\HrnsnChecker.exe
+E:\Dropbox\Projects\HrnsnChecker\HrnsnChecker\obj\Release\HrnsnChecker.pdb

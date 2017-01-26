@@ -27,19 +27,54 @@ namespace HrnsnChecker
             items = _items;
         }
 
-        public Dictionary<string, int> GetDungeonCount(List<int> idlist)
+        public Dictionary<string, long> GetDungeonCount(IEnumerable<int> idlist)
         {
-            var dictionary = new Dictionary<string, int>();
+            var dictionary = new Dictionary<string, long>();
             var dungeonStatistics = statistics.statistics.subCategories[5].subCategories[6].statistics;
 
-            foreach (var dungeonID in dungeonStatistics)
+            foreach (var dungeon in dungeonStatistics)
             {
-                //dictionary.Add();
-                //dictionary.Add();
-                //dictionary.Add();
+                switch (dungeon.id)
+                {
+                    default:
+                        continue;
+                    case 10880: //EoA
+                        dictionary.Add("EoA", dungeon.quantity);
+                        break;
+                    case 10883: //DhT
+                        dictionary.Add("DhT", dungeon.quantity);
+                        break;
+                    case 10886: //NL
+                        dictionary.Add("NL", dungeon.quantity);
+                        break;
+                    case 10889: //HoV
+                        dictionary.Add("HoV", dungeon.quantity);
+                        break;
+                    case 10898: //VoW
+                        dictionary.Add("VoW", dungeon.quantity);
+                        break;
+                    case 10901: //BRH
+                        dictionary.Add("BRH", dungeon.quantity);
+                        break;
+                    case 10904: //MoS
+                        dictionary.Add("MoS", dungeon.quantity);
+                        break;
+                    case 10907: //Arcway
+                        dictionary.Add("Arcway", dungeon.quantity);
+                        break;
+                    case 10910: //CoS
+                        dictionary.Add("CoS", dungeon.quantity);
+                        break;
+                    case 11406: //Kara
+                        dictionary.Add("Kara", dungeon.quantity);
+                        break;
+                }
             }
 
-            return new Dictionary<string, int>();
+            var gesamt = dictionary.Select(x => x.Value).Aggregate((x,y) => x + y);
+            dictionary.Add("Gesamt", gesamt);
+
+            return dictionary;
         }
 
         public bool AchievementCompleted(int id)
